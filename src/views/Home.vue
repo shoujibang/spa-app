@@ -11,7 +11,7 @@
       left-icon="volume-o"
     />
     
-    <van-list
+    <!-- <van-list
       v-model="loading"
       :finished="finished"
       finished-text="没有更多了"
@@ -22,7 +22,7 @@
         :key="item"
         :title="item"
       />
-    </van-list>
+    </van-list> -->
   </div>
 </template>
 
