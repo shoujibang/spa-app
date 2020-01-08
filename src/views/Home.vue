@@ -10,6 +10,7 @@
       scrollable
       left-icon="volume-o"
     />
+    join us
     <van-list
       v-model="loading"
       :finished="finished"
