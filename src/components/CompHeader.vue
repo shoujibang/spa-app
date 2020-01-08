@@ -9,6 +9,8 @@
         @click-right="onClickRight"
         />
     </div>
+
+    
 </template>
 <script>
 import {
