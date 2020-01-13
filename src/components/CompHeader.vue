@@ -1,9 +1,9 @@
 <template>
     <div class="header">
        <van-nav-bar
-        title="标题"
+        :title="$route.meta.title"
         left-text="返回"
-        right-text="按钮"
+        right-text="登录"
         left-arrow
         @click-left="onClickLeft"
         @click-right="onClickRight"
@@ -51,10 +51,10 @@ export default {
     },
     methods: {
         onClickLeft() {
-            Toast('返回');
+            this.$router.go(-1);
         },
         onClickRight() {
-        Toast('按钮');
+            this.$router.push("/login")
         }
     }
 

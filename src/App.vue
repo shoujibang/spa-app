@@ -2,12 +2,13 @@
   <div id="app">
     <comp-header />
       <router-view/>    
-    <comp-fotter />    
+    <comp-fotter v-if="!(!$route.meta.isShow && $route.meta.isShow == false)" />    
   </div>
 </template>
 <script>
-import CompHeader from '@/components/CompHeader.vue'
-import CompFotter from '@/components/CompFotter.vue'
+import CompHeader from '@/components/CompHeader.vue';
+import CompFotter from '@/components/CompFotter.vue';
+// import remjs from "@util/rem"; //响应式
 export default {
   name:'',
   components:{

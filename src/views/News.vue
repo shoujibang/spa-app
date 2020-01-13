@@ -49,7 +49,7 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-    .fotter{
-        font-size: 20px;
+    .person{
+        font-size: 10px;
     }
 </style>
