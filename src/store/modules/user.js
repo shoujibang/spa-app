@@ -1,8 +1,8 @@
 import { login, getInfo } from '@/api/user'
 import { Toast } from 'vant'
-// import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getToken, setToken, removeToken } from '@/util/auth'
 import { resetRouter } from '@/router'
-// import router from '@/router'
+import router from '@/router'
 
 const LOGIN = 'LOGIN'// 获取用户信息
 const SetUserData = 'SetUserData'// 获取用户信息
@@ -12,7 +12,7 @@ const USER_DATA = 'userDate'// 用户数据
 export default {
   namespaced: true,
   state: {
-    // token: getToken() || '',
+    token: getToken() || '',
     user: JSON.parse(localStorage.getItem(USER_DATA) || null)
   },
   mutations: {
@@ -20,7 +20,7 @@ export default {
     [LOGIN] (state, data) {
       let userToken = data.data
       state.token = userToken
-    //   setToken(userToken)
+      setToken(userToken)
     },
 
     [SetUserData] (state, userData = {}) {
@@ -30,7 +30,7 @@ export default {
     [LOGOUT] (state) {
       state.user = null
       state.token = null
-    //   removeToken()
+      removeToken()
       localStorage.removeItem(USER_DATA)
       resetRouter()
     }
