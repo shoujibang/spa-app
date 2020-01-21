@@ -1,37 +1,31 @@
 <template>
     <div class="person">
         <comp-header />        
-            <van-cell-group>
-                <van-cell border title="资讯中心" />                
-            </van-cell-group>
-            <router-link :to="{path:'/newsDetiles'}">资讯列表</router-link>
-            <router-view></router-view>
+            <ul>
+                <li v-for="(item,index) in list" :key="index">
+                    {{item.name}}-----{{index}}
+                </li>
+            </ul>
         <comp-fotter />
     </div>
 </template>
 <script>
 import {
-    Cell,
-    CellGroup,
     Tabbar,
     TabbarItem,
     Toast,
-    Circle,
-    List
+    Circle 
     } from 'vant';
 export default {
-    name:'News',
+    name:'NewsDetile',
     mixins:[
 
     ],
     components:{
-        [Cell.name]:Cell,
-        [CellGroup.name]:CellGroup,
         [Tabbar.name]:Tabbar,
         [TabbarItem.name]:TabbarItem,
         [Toast.name]:Toast,
-        [Circle.name]:Circle,
-        [List.name]:List
+        [Circle.name]:Circle
     },
     props:{
 
@@ -39,7 +33,15 @@ export default {
     data() {
         return {
            active:0,
-           currentRate: 0
+           currentRate: 0,
+           list:[{
+               name:"劲爆新闻"
+           },
+           {
+               name:"劲爆新闻"
+           },{
+               name:"劲爆新闻"
+           }]
         }
     },
     computed: {

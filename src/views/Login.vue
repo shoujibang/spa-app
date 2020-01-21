@@ -17,6 +17,7 @@
                                 v-model="code" 
                                 placeholder="请输入验证码" />
                         </van-col>
+                        
                         <van-col span="10">
                             <van-button @click="sendCode" native-type="button" type="primary">{{content}}</van-button>
                         </van-col>
@@ -29,6 +30,7 @@
                 </van-col>
             </van-row>
         </form>
+        <div class="pa">dfasdfasdfasdfadsfasdfasdfsdf</div>
     </div>
 </template>
 <script>
@@ -125,11 +127,17 @@ export default {
 }
 </script>
 <style lang="less" scoped>
+   @mainColor:#e92323;
     .login{
         font-size: 10px;
         padding:30px 10px 0 10px;
         .submit{
             margin-top:20px;
+        }
+        .pa{
+           
+            color:@text-color;
+            font-size: 30px;
         }
     }
 </style>

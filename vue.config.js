@@ -1,21 +1,26 @@
 const path = require("path");
 const resolve = dir =>path.join(__dirname,dir);
+const is_production = process.env.NODE_ENV === 'production'
+
+
+
+
 module.exports = {
   outputDir: './hybirdApp/www', //hybirdapp构建配置
   // 是否在保存的时候使用 `eslint-loader` 进行检查。
   // 有效的值：`ture` | `false` | `"error"`
   // 当设置为 `"error"` 时，检查出的错误会触发编译失败。
-  lintOnSave: true,
+  // lintOnSave: process.env.NODE_ENV === 'development',
+  lintOnSave: false,
   // 设置为false可以加速生产构建
   productionSourceMap: false,
   devServer:{
     open:true,
     //  将以下三项设置为false,关闭eslint
-    //  overlay: {
-    //      warnings: false,
-    //      errors: false
-    //  },
-    //  lintOnSave: false,
+     overlay: {
+         warnings: false,
+         errors: true
+     },
     proxy:{
       "/devapi": {
         target: "https://api.apiopen.top", // 接口域名
@@ -40,6 +45,35 @@ module.exports = {
     .set("@assets", resolve("src/assets"))
     .set("@views", resolve("src/views"))
     .set("@components", resolve("src/components"))
-    .set("@util", resolve("src/assets/util"));
+    .set("@util", resolve("src/assets/util"))
+    .set("@store", resolve("src/store"));
+  },
+  //传递任何第三方插件选项
+  pluginOptions:{
+    'style-resources-loader': {
+       preProcessor: 'less',
+       patterns: [
+        path.resolve(__dirname, './src/assets/css/index.less') // 变量文件位置
+       ]
+    }
+      
+  },
+  css:{
+    // 是否使用css分离插件 ExtractTextPlugin,
+    //是否将组件中的 CSS 提取至一个独立的 CSS 文件中
+    extract: !!is_production,
+    // 开启 CSS source maps?.设置为 true 之后可能会影响构建的性能
+    sourceMap: false,
+    // 向预处理器 Loader 传递选项
+    loaderOptions:{
+      // 给 less-loader 传递 Less.js 相关选项
+      less:{
+        globalVars:{
+          textColorTwo:'red'
+        }
+        
+        
+      }
+    }
   }
 };

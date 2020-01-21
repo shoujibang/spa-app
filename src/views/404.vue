@@ -1,45 +1,30 @@
 <template>
     <div class="person">
-        <comp-header />        
-            <van-cell-group>
-                <van-cell border title="资讯中心" />                
-            </van-cell-group>
-            <router-link :to="{path:'/newsDetiles'}">资讯列表</router-link>
-            <router-view></router-view>
-        <comp-fotter />
+        正在研发中...
     </div>
 </template>
 <script>
 import {
-    Cell,
-    CellGroup,
     Tabbar,
     TabbarItem,
-    Toast,
-    Circle,
-    List
+    Toast
     } from 'vant';
 export default {
-    name:'News',
+    name:'404',
     mixins:[
 
     ],
     components:{
-        [Cell.name]:Cell,
-        [CellGroup.name]:CellGroup,
         [Tabbar.name]:Tabbar,
         [TabbarItem.name]:TabbarItem,
-        [Toast.name]:Toast,
-        [Circle.name]:Circle,
-        [List.name]:List
+        [Toast.name]:Toast
     },
     props:{
 
     },
     data() {
         return {
-           active:0,
-           currentRate: 0
+           active:0 
         }
     },
     computed: {

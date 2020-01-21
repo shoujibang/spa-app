@@ -44,7 +44,7 @@ module.exports = {
     //    'postcss-zindex': false
     //  },
     'autoprefixer': {
-            // browsers: ['Android >= 4.0', 'iOS >= 7']
+        //  browsers: ['Android >= 4.0', 'iOS >= 7']
      },    
   //rem适配    
     'postcss-pxtorem': {

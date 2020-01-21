@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <comp-header />
     <van-swipe :height="200" :autoplay="3000" indicator-color="white">
       <van-swipe-item v-for="(item,index) in imgs" :key="index">
         <img :src="item.src" />
@@ -23,6 +24,7 @@
         :title="item"
       />
     </van-list> -->
+    <comp-fotter />
   </div>
 </template>
 
@@ -87,9 +89,6 @@ export default {
 </script>
 <style lang="less" scoped>
   .home{
-    img{
-      width: 100%;
-      height: 100%;
-    }
+   
   }
 </style>

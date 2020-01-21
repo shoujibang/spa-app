@@ -1,6 +1,8 @@
 <template>
     <div class="person">
-        个人中心
+        <comp-header />        
+            <div>个人中心</div>
+        <comp-fotter />
     </div>
 </template>
 <script>

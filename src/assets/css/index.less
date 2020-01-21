@@ -1,0 +1,44 @@
+@import "color";
+@import "var";
+@import "base";
+@import "media";
+.person{
+   font-size: 30px;
+    color: red;
+}
+
+.back-enter-active,
+.back-leave-active,
+.forward-enter-active,
+.forward-leave-active {
+  will-change: transform;
+  transition: transform @page-transform;
+  position: absolute;
+  height: 100%;
+  backface-visibility: hidden;
+  perspective: 1000;
+}
+.back-enter {
+  opacity: 0.75;
+  transform: translate3d(-50%, 0, 0) !important;
+}
+.back-enter-active {
+  z-index: -1 !important;
+  transition: transform @page-transform;
+}
+.back-leave-active {
+  transform: translate3d(100%, 0, 0) !important;
+  transition: transform @page-transform;
+}
+.forward-enter {
+  transform: translate3d(100%, 0, 0) !important;
+}
+.forward-enter-active {
+  transition: transform @page-transform;
+}
+.forward-leave-active {
+  z-index: -1;
+  opacity: 0.65;
+  transform: translate3d(-50%, 0, 0) !important;
+  transition: transform @page-transform;
+}
