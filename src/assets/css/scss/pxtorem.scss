@@ -1,0 +1,4 @@
+$baseFontSize: 100px !default;
+@function pxtorem($px) {
+  @return $px/$baseFontSize * 1rem;
+}

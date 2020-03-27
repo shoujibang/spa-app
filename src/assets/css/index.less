@@ -1,0 +1,28 @@
+@import "./common.less";
+@import "./btn.less";
+@import "./scss/index-ic.css";
+@import "./scss/iconFont.css";
+
+#app {
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+}
+.box-home {
+  width: 1196px;
+  margin: 0 auto;
+}
+.scale-big {
+  &:hover {
+    transition: all 0.3s ease-in-out;
+    transform: scale(1.05);
+  }
+}
+.scale-big-img {
+  &:hover {
+    img {
+      transition: all 0.6s ease-in-out;
+      transform: scale(1.05);
+    }
+  }
+}
