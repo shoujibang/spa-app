@@ -1,47 +1,38 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Person from '../views/Person.vue'
-import News from '../views/News.vue'
-import Active from '../views/Active.vue'
+import Home from "./home"
+import News from "./news"
+import pcIndex from "./pcIndex"
+
 
 Vue.use(VueRouter)
 
-const routes = [
-  {
-    path: '/',
-    name: 'home',
-    component: Home
-  },
-  {
-    path: '/news',
-    name: 'news',
-    component: News
-  },
-  {
-    path: '/active',
-    name: 'active',
-    component: Active
-  },
-  {
-    path: '/person',
-    name: 'person',
-    component: Person
-  },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
-
+console.log("pcIndexpcIndexpcIndexpcIndex",pcIndex)
+let routes = [...Home,...News,...pcIndex]
+/**
+ * 重写路由的push方法
+ * 主要是为了解决同一个路由路径重复点击报错
+ */
+const routerPush = VueRouter.prototype.push;
+VueRouter.prototype.push = function push(location) {
+  return routerPush.call(this, location).catch(error => error);
+};
 const router = new VueRouter({
   mode: 'history',
+  // mode: process.env.NODE_ENV == "development" ? "history" : "hash",
   base: process.env.BASE_URL,
+  scrollBehavior: () => ({ y: 0 }),
   routes
 })
+
+
+router.beforeEach((to,from,next) =>{
+  /**修改title */
+  if(to.meta.title){
+    document.title = to.meta.title;
+  }
+  next();
+})
+
 
 export default router

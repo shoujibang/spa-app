@@ -1,0 +1,49 @@
+    @import "color";
+    @page-transform:300ms;
+    .tit{
+        color: @text-color;
+    }
+    .bg-img(@url) {
+        background-image: url('@{url}@2x.png');
+        @media only screen and (-webkit-min-device-pixel-ratio: 3),
+        only screen and (min--moz-device-pixel-ratio: 3),
+        only screen and (-o-min-device-pixel-ratio: 3),
+        only screen and (min-device-pixel-ratio: 3) {
+        background-image: url('@{url}@3x.png');
+        }
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 100% 100%;
+    }
+    // 清楚浮动
+    .clearfix() {
+        &::after {
+        display: table;
+        clear: both;
+        content: '';
+        }
+    }
+    // 多行文本溢出显示省略号
+    .ellipsis(){
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    // 圆角按钮渐变
+    .is-radius-button-red() {
+        background: linear-gradient(
+        132deg,
+        rgba(250, 108, 51, 1) 0%,
+        rgba(242, 58, 23, 1) 100%
+        );
+        border-radius: 46px;
+        color: #fff;
+        text-align: center;
+        padding: 0;
+    }
+
+
+
+
+
+

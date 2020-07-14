@@ -1,13 +1,6 @@
 <template>
-    <div class="header">
-       <van-nav-bar
-        :title="$route.meta.title"
-        left-text="返回"
-        right-text="登录"
-        left-arrow
-        @click-left="onClickLeft"
-        @click-right="onClickRight"
-        />
+    <div class="verification-code">
+       
     </div>
 </template>
 <script>
@@ -17,7 +10,7 @@ import {
     Toast
     } from 'vant';
 export default {
-    name:'CompHeader',
+    name:'VerificationCode',
     mixins:[
 
     ],
@@ -51,17 +44,17 @@ export default {
     },
     methods: {
         onClickLeft() {
-            this.$router.go(-1);
+            Toast('返回');
         },
         onClickRight() {
-            this.$router.push("/login")
+        Toast('按钮');
         }
     }
 
 }
 </script>
 <style lang="less" scoped>
-    .header{
+    .verification-code{
         font-size: 20px;
     }
 </style>

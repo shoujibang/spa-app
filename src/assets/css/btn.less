@@ -1,0 +1,52 @@
+// 点击超链接 闪烁效果
+.text-white {
+  cursor: pointer;
+}
+.text-white:active {
+  color: #000;
+  cursor: pointer;
+  opacity: 0.8; // 这里重要，就是通过这个透明度来设置
+}
+// 点击按钮白光闪过
+.btn-white {
+  cursor: pointer;
+}
+.btn-white:active {
+  color: #fff;
+  border-radius: 5px;
+  cursor: pointer;
+  // background: #000;
+  opacity: 0.5; // 这里重要，就是通过这个透明度来设置
+}
+// 水波纹特效
+.btn-ripple {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.btn-ripple:after {
+  content: "";
+  background: rgba(255, 255, 255, 0.3);
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  padding-top: 240%;
+  padding-left: 240%;
+  margin-top: -160%;
+  margin-left: -50%;
+  opacity: 0;
+  transition: all 0.8s;
+}
+
+.btn-ripple:active:after {
+  padding-top: 0;
+  padding-left: 0;
+  margin-top: 0;
+  margin-left: 0;
+  opacity: 1;
+  transition: 0s;
+}
+.top12{
+  margin-top: 30px;
+}
